@@ -1,0 +1,16 @@
+<div class="source_table" id="<%= id(stat) %>">
+  <div class="header">
+    <h2 class="subhead"><%= stat.name %></h2>
+  </div>
+
+  <pre>
+    <p><%= stat.file %></p>
+    <ol>
+      <% stat.lines.each do |number, line| %>
+        <li class="<%= line_status(stat, number) %>" data-linenumber="<%= number %>">
+          <code class="ruby"><%= CGI.escapeHTML(line.chomp) %></code>
+        </li>
+      <% end %>
+    </ol>
+  </pre>
+</div>

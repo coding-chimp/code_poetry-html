@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <title>Code Metrics for <%= CodePoetry.project_name %></title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <script src='assets/application.js' type='text/javascript'></script>
+    <link href='assets/application.css' rel='stylesheet' type='text/css'>
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <div class="header">
+        <h1>Code Metrics for <%= CodePoetry.project_name %></h1>
+      </div>
+
+      <div id="content">
+        <%= formatted_file_list(stats) %>
+      </div>
+
+      <div id="footer">
+        Generated <%= timeago(Time.now) %> by <a href="http://github.com/coding-chimp/code_poetry">code_poetry</a> v<%= CodePoetry::VERSION %>
+        and code_poetry-html v<%= CodePoetry::Formatter::HTMLFormatter::VERSION %>
+      </div>
+
+      <div class="source_files">
+      <% stats.each do |stat| %>
+        <%= formatted_source_file(stat) %>
+      <% end %>
+      </div>
+    </div>
+  </body>
+</html>

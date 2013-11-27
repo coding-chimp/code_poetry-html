@@ -1,0 +1,128 @@
+body {
+  font-family: 'Lato', sans-serif;
+  padding: 12px 24px;
+  color: #777;
+}
+
+a {
+  color: #3b8bba;
+  text-decoration: none;
+}
+
+table { width: 100% }
+
+.header {
+  min-height: 60px;
+  margin: 0;
+  color: #1F8DD6;
+  padding: 1em 2em;
+  text-align: center;
+}
+
+.header h1 {
+  font-family: 'Lato', sans-serif;
+  margin: 0.2em 0;
+  font-size: 4em;
+  font-weight: 300;
+  font-weight: 300;
+}
+
+.subhead {
+  font-weight: 300;
+  position: relative;
+}
+
+.dataTables_filter {
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.dataTables_info {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+a.src_link {
+  background: url('./magnify.png') no-repeat left 50%;
+  padding-left: 18px;
+}
+
+th {
+  white-space: nowrap;
+  font-weight: 400;
+}
+
+.source_files { display: none }
+
+.source_table {
+  h3, h4 {
+//     padding: 0;
+//     margin: 0;
+//     margin-bottom: 4px;
+  }
+  .header {
+//     padding: 10px;
+  }
+  pre {
+    margin: 0;
+    padding: 0;
+    white-space: normal;
+    color: #000;
+    font-family: Consolas, 'Bitstream Vera Sans Mono', Monaco, Courier, monospace;
+    p {
+      font-family: 'Lato', sans-serif;
+      color: white;
+      margin: 0px;
+      padding: 10px 0 10px 15px;
+    }
+  }
+  code {
+    color: #000;
+    font-family: Consolas, 'Bitstream Vera Sans Mono', Monaco, Courier, monospace;
+  }
+  pre {
+    background-color: #333;
+    ol {
+      margin: 0px;
+      padding: 0px;
+      margin-left: 45px;
+      font-size: 13px;
+      color: white;
+    }
+    li {
+      background-color: #f8f8ff;
+      padding-left: 10px;
+      code {
+        white-space: pre;
+        white-space: pre-wrap;
+        padding: 1px;
+      }
+    }
+    li:first-child { padding-top: 4px }
+    li:last-child { padding-bottom: 4px }
+  }
+  .smelly {
+    border-left:7px solid #ee7b10
+  }
+  .smelly:nth-child(even), .smelly:nth-child(even) code {
+    background-color: #f7e9d0
+  }
+  .smelly:nth-child(odd), .smelly:nth-child(odd) code {
+    background-color: #f7e3c1
+  }
+}
+
+#footer {
+  font-size: 12px;
+  margin-top: 12px;
+  text-align: right;
+}
+
+abbr.timeago {
+  text-decoration: none;
+  border: none;
+}
+
+.green { color: #090 }
+.red { color: #900 }
+.yellow { color: #da0 }
