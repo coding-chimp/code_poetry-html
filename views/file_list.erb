@@ -6,6 +6,7 @@
         <th>Lines</th>
         <th>Lines of Code</th>
         <th>Churns</th>
+        <th>Smells</th>
         <th>Complexity</th>
         <th>Complexity/Method</th>
       </tr>
@@ -17,12 +18,9 @@
         <td><%= stat.lines.count %></td>
         <td><%= stat.lines_of_code %></td>
         <td><%= stat.churns %></td>
-        <td class="<%= class_complexity_css_class(stat.complexity) %>">
-          <%= stat.complexity %>
-        </td>
-        <td class="<%= method_complexity_css_class(stat.complexity_per_method) %>">
-          <%= stat.complexity_per_method %>
-        </td>
+        <td><%= stat.smells.count %></td>
+        <td><%= stat.complexity %></td>
+        <td><%= stat.complexity_per_method %></td>
       </tr>
       <% end %>
     </tbody>

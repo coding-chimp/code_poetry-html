@@ -20,11 +20,17 @@ $(document).ready(function() {
 
   $(document).ready(function() {
     $(".src_link").fancybox({
-      minWidth: 700,
+      minWidth: 800,
       helpers: {
         title:  null
       }
     });
+  });
+
+  $(".toggle-smells, .toggle-source").on("click", function() {
+    var table = $(this).closest(".source_table")
+    table.find("li").toggleClass("pure-menu-selected")
+    table.find(".smell-view, .source-view").toggle()
   });
 
   $("abbr.timeago").timeago();

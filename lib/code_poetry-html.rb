@@ -42,26 +42,6 @@ private
     template('file_list').result(binding)
   end
 
-  def class_complexity_css_class(complexity)
-    if complexity > 150
-      'red'
-    elsif complexity > 100
-      'yellow'
-    else
-      'green'
-    end
-  end
-
-  def method_complexity_css_class(complexity)
-    if complexity > 40
-      'red'
-    elsif complexity > 20
-      'yellow'
-    else
-      'green'
-    end
-  end
-
   def id(stat)
     Digest::SHA1.hexdigest(stat.file)
   end
@@ -78,7 +58,7 @@ private
     method = stat.get_method_at_line(line_number)
 
     unless method.nil?
-      'smelly' if method[:complexity] > 20
+      'smelly' if method[:complexity] > 25
     end
   end
 end

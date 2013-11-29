@@ -3,14 +3,48 @@
     <h2 class="subhead"><%= stat.name %></h2>
   </div>
 
-  <pre>
-    <p><%= stat.file %></p>
-    <ol>
-      <% stat.lines.each do |number, line| %>
-        <li class="<%= line_status(stat, number) %>" data-linenumber="<%= number %>">
-          <code class="ruby"><%= CGI.escapeHTML(line.chomp) %></code>
-        </li>
+  <div class="pure-menu pure-menu-open pure-menu-horizontal">
+    <ul>
+        <li class="pure-menu-selected"><a class="toggle-smells" href="#">Smell View</a></li>
+        <li><a class="toggle-source" href="#">Source View</a></li>
+    </ul>
+  </div>
+
+  <div class="smell-view">
+    <ul>
+      <% stat.smells.each do |smell| %>
+        <% if smell[:type] == "ComplexClass" %>
+          <li>
+            <b>Complex class</b>
+            <span class="smell-complexity">(complexity <%= stat.complexity %>)</span>
+          </li>
+        <% elsif  smell[:type] == "ComplexClassDefinition" %>
+          <li>
+            <b>Complex</b> code in
+            <span class="method"><%= stat.name %></span> definition outside of methods
+            <span class="smell-complexity">(complexity <%= smell[:method][:complexity] %>)</span>
+          </li>
+        <% elsif smell[:type] == "ComplexMethod" %>
+          <li>
+            <b>Complex method</b>
+            <span class="smell-name"><%= smell[:method][:name] %></span>
+            <span class="smell-complexity">(complexity <%= smell[:method][:complexity] %>)</span>
+          </li>
+        <% end %>
       <% end %>
-    </ol>
-  </pre>
+    </ul>
+  </div>
+
+  <div class="source-view" style="display: none;">
+    <pre>
+      <p><%= stat.file %></p>
+      <ol>
+        <% stat.lines.each do |number, line| %>
+          <li class="<%= line_status(stat, number) %>" data-linenumber="<%= number %>">
+            <code class="ruby"><%= CGI.escapeHTML(line.chomp) %></code>
+          </li>
+        <% end %>
+      </ol>
+    </pre>
+  </div>
 </div>
