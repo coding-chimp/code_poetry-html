@@ -25,13 +25,13 @@
         <% elsif smell.complex_class_definition? %>
           <li>
             <span class="smell">Complex</span> code in
-            <span class="method"><%= stat.name %></span> definition outside of methods
+            <span class="smell-name"><%= stat.name %></span> definition outside of methods
             <span class="smell-complexity">(complexity <%= stat.definition_complexity %>)</span>
           </li>
         <% elsif smell.complex_method? %>
           <li>
             <span class="smell">Complex method</span>
-            <span class="smell-name"><%= smell.method.name %></span>
+            <span class="smell-name"><%= smell.method.pretty_name %></span>
             <span class="smell-complexity">(complexity <%= smell.method.complexity %>)</span>
           </li>
         <% end %>
