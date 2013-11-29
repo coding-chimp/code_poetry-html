@@ -58,7 +58,7 @@ private
     method = stat.get_method_at_line(line_number)
 
     unless method.nil?
-      'smelly' if method[:complexity] > 25
+      'smelly' if method.smelly?
     end
   end
 end

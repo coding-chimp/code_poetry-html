@@ -474,6 +474,8 @@ th {
 .source_table .smell-view li {
   list-style: none;
   margin-top: 10px; }
+.source_table .smell-view .smell {
+  color: black; }
 .source_table .smell-view .smell-name {
   font-size: 18px; }
 .source_table .smell-view .smell-complexity {

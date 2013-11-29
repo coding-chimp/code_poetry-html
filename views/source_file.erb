@@ -15,20 +15,20 @@
       <% stat.smells.each do |smell| %>
         <% if smell[:type] == "ComplexClass" %>
           <li>
-            <b>Complex class</b>
+            <span class="smell">Complex class</span>
             <span class="smell-complexity">(complexity <%= stat.complexity %>)</span>
           </li>
         <% elsif  smell[:type] == "ComplexClassDefinition" %>
           <li>
-            <b>Complex</b> code in
+            <span class="smell">Complex</span> code in
             <span class="method"><%= stat.name %></span> definition outside of methods
-            <span class="smell-complexity">(complexity <%= smell[:method][:complexity] %>)</span>
+            <span class="smell-complexity">(complexity <%= stat.definition_complexity %>)</span>
           </li>
         <% elsif smell[:type] == "ComplexMethod" %>
           <li>
-            <b>Complex method</b>
-            <span class="smell-name"><%= smell[:method][:name] %></span>
-            <span class="smell-complexity">(complexity <%= smell[:method][:complexity] %>)</span>
+            <span class="smell">Complex method</span>
+            <span class="smell-name"><%= smell[:method].name %></span>
+            <span class="smell-complexity">(complexity <%= smell[:method].complexity %>)</span>
           </li>
         <% end %>
       <% end %>
