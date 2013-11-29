@@ -12,23 +12,27 @@
 
   <div class="smell-view">
     <ul>
+      <% if stat.smells.empty? %>
+        <li>Nothing smelly to report! Hurray!</li>
+      <% end %>
+
       <% stat.smells.each do |smell| %>
-        <% if smell[:type] == "ComplexClass" %>
+        <% if smell.complex_class? %>
           <li>
             <span class="smell">Complex class</span>
             <span class="smell-complexity">(complexity <%= stat.complexity %>)</span>
           </li>
-        <% elsif  smell[:type] == "ComplexClassDefinition" %>
+        <% elsif smell.complex_class_definition? %>
           <li>
             <span class="smell">Complex</span> code in
             <span class="method"><%= stat.name %></span> definition outside of methods
             <span class="smell-complexity">(complexity <%= stat.definition_complexity %>)</span>
           </li>
-        <% elsif smell[:type] == "ComplexMethod" %>
+        <% elsif smell.complex_method? %>
           <li>
             <span class="smell">Complex method</span>
-            <span class="smell-name"><%= smell[:method].name %></span>
-            <span class="smell-complexity">(complexity <%= smell[:method].complexity %>)</span>
+            <span class="smell-name"><%= smell.method.name %></span>
+            <span class="smell-complexity">(complexity <%= smell.method.complexity %>)</span>
           </li>
         <% end %>
       <% end %>
