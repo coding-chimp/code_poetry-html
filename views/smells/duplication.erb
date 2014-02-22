@@ -1,0 +1,10 @@
+<li>
+  <span class="smell"><%= smell.object.severity %> Code</span> found in
+  <span class="smell-name">:<%= smell.object.node %></span> nodes
+  <span class="smell-complexity">(mass  = <%= smell.object.mass %>)</span>
+  <ul class="duplications">
+    <% smell.object.methods.each do |method| %>
+      <li><%= method.pretty_location %></li>
+    <% end %>
+  </ul>
+</li>
