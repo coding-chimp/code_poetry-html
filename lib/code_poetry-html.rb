@@ -11,7 +11,7 @@ class CodePoetry::Formatter::HTMLFormatter
     end
 
     File.open(File.join(output_path, "index.html"), "w+") do |file|
-      file.puts template('layout').result(binding)
+      file.puts template('views', 'layout').result(binding)
     end
 
     puts "Code Poetry report generated to #{output_path}."
@@ -19,8 +19,8 @@ class CodePoetry::Formatter::HTMLFormatter
 
 private
 
-  def template(name)
-    ERB.new(File.read(File.join(File.dirname(__FILE__), '../views/', "#{name}.erb")))
+  def template(path, name)
+    ERB.new(File.read(File.join(File.dirname(__FILE__), "../#{path}/", "#{name}.erb")))
   end
 
   def output_path
@@ -35,11 +35,15 @@ private
   end
 
   def formatted_source_file(stat)
-    template('source_file').result(binding)
+    template('views', 'source_file').result(binding)
   end
 
   def formatted_file_list(stats)
-    template('file_list').result(binding)
+    template('views', 'file_list').result(binding)
+  end
+
+  def formatted_smell(stat, smell)
+    template('views/smells', smell.type).result(binding)
   end
 
   def id(stat)
@@ -47,18 +51,18 @@ private
   end
 
   def timeago(time)
-    %Q(<abbr class="timeago" title="#{time.iso8601}">#{time.iso8601}</abbr>)
+    %(<abbr class="timeago" title="#{time.iso8601}">#{time.iso8601}</abbr>)
   end
 
   def link_to_source_file(stat)
-    %Q(<a href="##{id(stat)}" class="src_link" title="#{stat.name}">#{stat.name}</a>)
+    %(<a href="##{id(stat)}" class="src_link" title="#{stat.name}">#{stat.name}</a>)
   end
 
   def line_status(stat, line_number)
     method = stat.get_method_at_line(line_number)
 
     unless method.nil?
-      'smelly' if method.smelly?
+      'smelly' if method.smelly? || method.duplicated?
     end
   end
 end

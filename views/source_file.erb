@@ -17,24 +17,7 @@
       <% end %>
 
       <% stat.smells.each do |smell| %>
-        <% if smell.complex_class? %>
-          <li>
-            <span class="smell">Complex class</span>
-            <span class="smell-complexity">(complexity <%= stat.complexity %>)</span>
-          </li>
-        <% elsif smell.complex_class_definition? %>
-          <li>
-            <span class="smell">Complex</span> code in
-            <span class="smell-name"><%= stat.name %></span> definition outside of methods
-            <span class="smell-complexity">(complexity <%= stat.definition_complexity %>)</span>
-          </li>
-        <% elsif smell.complex_method? %>
-          <li>
-            <span class="smell">Complex method</span>
-            <span class="smell-name"><%= smell.method.pretty_name %></span>
-            <span class="smell-complexity">(complexity <%= smell.method.complexity %>)</span>
-          </li>
-        <% end %>
+        <%= formatted_smell(stat, smell) %>
       <% end %>
     </ul>
   </div>
