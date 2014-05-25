@@ -47,7 +47,7 @@ private
   end
 
   def id(stat)
-    Digest::SHA1.hexdigest(stat.file)
+    Digest::SHA1.hexdigest(stat.absolute_path)
   end
 
   def timeago(time)

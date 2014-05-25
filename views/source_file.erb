@@ -24,7 +24,7 @@
 
   <div class="source-view" style="display: none;">
     <pre>
-      <p><%= stat.file %></p>
+      <p><%= stat.relative_path %></p>
       <ol>
         <% stat.lines.each do |number, line| %>
           <li class="<%= line_status(stat, number) %>" data-linenumber="<%= number %>">
