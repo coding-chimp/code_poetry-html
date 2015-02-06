@@ -419,7 +419,7 @@ pre .tex .formula {
 	}
 }
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   padding: 12px 24px;
   color: #777; }
 
@@ -438,7 +438,7 @@ table {
   text-align: center; }
 
 .header h1 {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   margin: 0.2em 0;
   font-size: 4em;
   font-weight: 300;
@@ -475,7 +475,7 @@ th {
   list-style: none;
   margin-top: 10px; }
 .source_table .smell-view .smell {
-  color: black; }
+  color: #000; }
 .source_table .smell-view .smell-name {
   font-size: 18px; }
 .source_table .smell-view .smell-complexity {
@@ -487,15 +487,15 @@ th {
   padding: 0;
   white-space: normal;
   color: #000;
-  font-family: Consolas, 'Bitstream Vera Sans Mono', Monaco, Courier, monospace; }
+  font-family: Consolas, "Bitstream Vera Sans Mono", Monaco, Courier, monospace; }
   .source_table pre p {
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: white;
     margin: 0px;
     padding: 10px 0 10px 15px; }
 .source_table code {
   color: #000;
-  font-family: Consolas, 'Bitstream Vera Sans Mono', Monaco, Courier, monospace; }
+  font-family: Consolas, "Bitstream Vera Sans Mono", Monaco, Courier, monospace; }
 .source_table pre {
   background-color: #333; }
   .source_table pre ol {
@@ -515,6 +515,13 @@ th {
     padding-top: 4px; }
   .source_table pre li:last-child {
     padding-bottom: 4px; }
+.source_table .smell-title {
+  margin-left: 45px;
+  padding: 5px 15px;
+  border-left: 7px solid #ee7b10;
+  background-color: #ee7b10;
+  color: white;
+  font-family: "Lato", sans-serif; }
 .source_table .smelly {
   border-left: 7px solid #ee7b10; }
 .source_table .smelly:nth-child(even), .source_table .smelly:nth-child(even) code {

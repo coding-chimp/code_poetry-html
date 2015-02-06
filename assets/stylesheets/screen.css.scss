@@ -1,5 +1,8 @@
+$default-font: 'Lato', sans-serif;
+$code-font: Consolas, 'Bitstream Vera Sans Mono', Monaco, Courier, monospace;
+
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: $default-font;
   padding: 12px 24px;
   color: #777;
 }
@@ -20,7 +23,7 @@ table { width: 100% }
 }
 
 .header h1 {
-  font-family: 'Lato', sans-serif;
+  font-family: $default-font;
   margin: 0.2em 0;
   font-size: 4em;
   font-weight: 300;
@@ -79,9 +82,9 @@ th {
     padding: 0;
     white-space: normal;
     color: #000;
-    font-family: Consolas, 'Bitstream Vera Sans Mono', Monaco, Courier, monospace;
+    font-family: $code-font;
     p {
-      font-family: 'Lato', sans-serif;
+      font-family: $default-font;
       color: white;
       margin: 0px;
       padding: 10px 0 10px 15px;
@@ -89,7 +92,7 @@ th {
   }
   code {
     color: #000;
-    font-family: Consolas, 'Bitstream Vera Sans Mono', Monaco, Courier, monospace;
+    font-family: $code-font;
   }
   pre {
     background-color: #333;
@@ -111,6 +114,14 @@ th {
     }
     li:first-child { padding-top: 4px }
     li:last-child { padding-bottom: 4px }
+  }
+  .smell-description {
+    margin-left: 45px;
+    padding: 5px 15px;
+    border-left: 7px solid #ee7b10;
+    background-color: #ee7b10;
+    color: white;
+    font-family: $default-font;
   }
   .smelly {
     border-left: 7px solid #ee7b10

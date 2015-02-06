@@ -65,6 +65,21 @@ private
       'smelly' if method.smelly? || method.duplicated?
     end
   end
+
+  def first_line_of_smell?(stat, line_number)
+    line_status(stat, line_number - 1).nil? &&
+      line_status(stat, line_number) == 'smelly'
+  end
+
+  def smell_title(stat, line_number)
+    method = stat.get_method_at_line(line_number)
+
+    if method.smelly?
+      'Complex Method'
+    else
+      'Duplication'
+    end
+  end
 end
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__)))

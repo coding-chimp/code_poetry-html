@@ -27,7 +27,13 @@
       <p><%= stat.relative_path %></p>
       <ol>
         <% stat.lines.each do |number, line| %>
-          <li class="<%= line_status(stat, number) %>" data-linenumber="<%= number %>">
+          <% if first_line_of_smell?(stat, number) %>
+      </ol>
+      <div class="smell-description"><%= smell_title(stat, number) %></div>
+      <ol start="<%= number %>">
+          <% end %>
+
+          <li class="<%= line_status(stat, number) %>">
             <code class="ruby"><%= CGI.escapeHTML(line.chomp) %></code>
           </li>
         <% end %>
