@@ -515,7 +515,7 @@ th {
     padding-top: 4px; }
   .source_table pre li:last-child {
     padding-bottom: 4px; }
-.source_table .smell-title {
+.source_table .smell-description {
   margin-left: 45px;
   padding: 5px 15px;
   border-left: 7px solid #ee7b10;
